@@ -3,7 +3,7 @@ class Pregunta {
     constructor(texto, opciones){
         this.texto = texto;
         this.opciones = opciones;
-        this.opcioneSeleccionada = null;
+        this.opcionSeleccionada = null;
     }
 
     //Método para mostrar la pregunta al usuario y registrar un respuesta
@@ -17,7 +17,7 @@ class Pregunta {
     while (isNaN(eleccion) || eleccion < 1 || eleccion > this.opciones.length){
         eleccion = parseInt(prompt("Opción inválida. Intenta de nuevo:\n" + mensaje));
     }
-    this.opcionSelecciona = this.opciones[eleccion - 1];
+    this.opcionSeleccionada = this.opciones[eleccion - 1];
     }
 }
 
