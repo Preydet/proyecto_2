@@ -34,7 +34,7 @@ class Encuesta {
     }
 
     //Ejecuta la encuesta preguntando una por una
-    realizarEncuestas() {
+    realizarEncuesta() {
         alert(`Comenzando la encuesta: ${this.titulo}`);
         this.preguntas.forEach(pregunta => {
             pregunta.hacerPregunta();
@@ -80,9 +80,9 @@ function iniciarEncuesta(){
                 alert("Debes ingresar al menos 2 opciones");
             }
         }
-        encuesta.agregarPreguntas(new Pregunta(texto. opciones));
+        encuesta.agregarPreguntas(new Pregunta(texto, opciones));
     }
-    encuesta.realizarEncuestas();
+    encuesta.realizarEncuesta();
     encuesta.mostrarResultados();
 }
 iniciarEncuesta();
