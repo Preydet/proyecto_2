@@ -70,7 +70,13 @@ function iniciarEncuesta(){
 
     //Bucle para pedir cada pregunta
     for (let i = 0; i < numPreguntas; i++){
-        const texto = prompt(`Escribe el texto de la pregunta ${i +1}:`);
+        let texto = "";
+        while (!texto || texto.trim() === ""){
+            texto = prompt(`Escribe el texto de la pregunta ${i+1}:`);
+            if (!texto || texto.trim() === ""){
+                alert("Debes ingresar un texto válido para la pregunta.");
+            }
+        }
 
         let opciones = [];
         while (opciones.length < 2){
