@@ -18,7 +18,11 @@ class Pregunta {
         eleccion = parseInt(prompt("Opción inválida. Intenta de nuevo:\n" + mensaje));
     }
     this.opcionSeleccionada = this.opciones[eleccion - 1];
-    }
+
+    //Mostrar en consola resultados en tiempo real
+    console.log(`Respondida: ${this.texto}`);
+    console.log(`Selección: ${this.opcionSeleccionada}\n`);
+    }  
 }
 
 //Clase que representa toda la encuesta
@@ -29,7 +33,7 @@ class Encuesta {
     }
 
     //Agrega una pregunta al arreglo de preguntas
-    agregarPreguntas(pregunta){
+    agregarPregunta(pregunta){
         this.preguntas.push(pregunta);
     }
 
@@ -71,6 +75,10 @@ function iniciarEncuesta(){
         let opciones = [];
         while (opciones.length < 2){
             const entrada = prompt("Escribe al menos 2 opciones separadas por comas:");
+            if (!entrada) {
+                alert("No Ingresaste nada. Intenta de nuevo.");
+                continue;
+            }
             opciones = entrada
             .split(",")
             .map(op => op.trim())
@@ -80,7 +88,7 @@ function iniciarEncuesta(){
                 alert("Debes ingresar al menos 2 opciones");
             }
         }
-        encuesta.agregarPreguntas(new Pregunta(texto, opciones));
+        encuesta.agregarPregunta(new Pregunta(texto, opciones));
     }
     encuesta.realizarEncuesta();
     encuesta.mostrarResultados();
